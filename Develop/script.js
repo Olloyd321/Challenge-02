@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var numbers = [1,2,3,4,5,6,7,8,9]
-var symbols = ['!','@','#','$','%','^','&','*',]
+var symbols = ['!','@','#','$','%','^','&','*','(',')','-','=']
 var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','X','Z']
 var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','x','z']
 
@@ -9,8 +9,12 @@ var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'
 function getRandom(arr){
   var randomIndex = Math.floor(Math.random()*arr.length)
   var randomArray = arr[randomIndex]
-  return randomArray  
+  return randomArray
 }
+
+
+// A better name for this function would have been something like "user input" or "User choices" 
+// as it requires input from the user
 
 function passwordOption(){
   var length = parseInt(
@@ -42,11 +46,14 @@ function passwordOption(){
 // this function will generate the password for the user
 function generatePassword(){
   var choices = passwordOption()
-  console.log(choices)
+
   var endResult = []
   var possibleChoices = []
   var gaurenteedChoices = []
   if (!choices)return null
+
+  // what is the purpose of gaurenteed choices here? *question for office hours
+
   if (choices.wantSpecial){
     possibleChoices = possibleChoices.concat(symbols)
     gaurenteedChoices.push(getRandom(symbols))
@@ -73,11 +80,10 @@ function generatePassword(){
   for (var i=0;i<gaurenteedChoices.length;i++){
     endResult[i]=gaurenteedChoices[i]
   }
-  console.log(endResult)
-  return endResult.join('')
-
+  
+  return endResult.join('') 
+// the join basically seperates returned values by a space?
 }
-
 
 // Write password to the #password input
 function writePassword() {
