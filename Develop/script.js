@@ -18,7 +18,7 @@ function getRandom(arr){
 
 function passwordOption(){
   var length = parseInt(
-    prompt('How long do you want your password to be?')
+    prompt('How many characters do you want in your password?')
   )
   if (Number.isNaN(length)){
     alert('Must be a integer')
@@ -28,10 +28,10 @@ function passwordOption(){
     alert('Must be between 8-128 characters')
     return null
   }
-  var wantSpecial = confirm('click OK to confirm special characters.')
-  var wantNumber = confirm('click OK to confirm number.')
-  var wantUpper = confirm('click OK to confirm UpperCase.')
-  var wantLower = confirm('click OK to confirm LowerCase')
+  var wantSpecial = confirm('click OK to use special characters, or click CANCEL to skip.')
+  var wantNumber = confirm('click OK to use numbers, or click CANCEL to skip.')
+  var wantUpper = confirm('click OK to use UpperCase, or click CANCEL to skip.')
+  var wantLower = confirm('click OK to use LowerCase, or click CANCEL to skip')
 
   var options = {
     length:length,
