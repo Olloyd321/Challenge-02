@@ -7,7 +7,7 @@ After my first tutor session for this challenge, my understanding of Javascript 
 
 Something significant I learned about Javascript is the importance of unique and descriptive function names.
 
-# Link to deployed application [here](https://olloyd321.github.io/Challenge-02/)
+# Link to deployed application [here](https://olloyd321.github.io/JavaScript-Password-Generator/)
 
 
-# Link to repository [here](https://github.com/Olloyd321/Challenge-02) 
+# Link to repository [here](https://github.com/Olloyd321/JavaScript-Password-Generator) 
