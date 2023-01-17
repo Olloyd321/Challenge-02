@@ -28,31 +28,27 @@ function passwordOption(){
     alert('Must be between 8-128 characters')
     return null
   }
-  var wantSpecial = confirm('click OK to use special characters, or click CANCEL to skip.')
-  var wantNumber = confirm('click OK to use numbers, or click CANCEL to skip.')
-  var wantUpper = confirm('click OK to use UpperCase, or click CANCEL to skip.')
-  var wantLower = confirm('click OK to use LowerCase, or click CANCEL to skip')
+
 
   var options = {
     length:length,
-    wantSpecial:wantSpecial,
-    wantNumber:wantNumber,
-    wantLower:wantLower,
-    wantUpper:wantUpper,
+    wantSpecial:confirm('click OK to use special characters, or click CANCEL to skip.'),
+    wantNumber:confirm('click OK to use numbers, or click CANCEL to skip.'),
+    wantLower:confirm('click OK to use UpperCase, or click CANCEL to skip.'),
+    wantUpper:confirm('click OK to use LowerCase, or click CANCEL to skip'),
   }
   return options
 }
 
 // this function will generate the password for the user
 function generatePassword(){
-  var choices = passwordOption()
 
+  var choices = passwordOption()
   var endResult = []
   var possibleChoices = []
   var gaurenteedChoices = []
+  
   if (!choices)return null
-
-  // what is the purpose of gaurenteed choices here? *question for office hours
 
   if (choices.wantSpecial){
     possibleChoices = possibleChoices.concat(symbols)
@@ -64,13 +60,13 @@ function generatePassword(){
   }
 
   if (choices.wantLower){
-  possibleChoices = possibleChoices.concat(lowerCase)
+    possibleChoices = possibleChoices.concat(lowerCase)
     gaurenteedChoices.push(getRandom(lowerCase))
   }
 
-    if (choices.wantUpper){
-      possibleChoices = possibleChoices.concat(upperCase)
-        gaurenteedChoices.push(getRandom(upperCase))
+  if (choices.wantUpper){
+    possibleChoices = possibleChoices.concat(upperCase)
+    gaurenteedChoices.push(getRandom(upperCase))
   }
   for (var i=0;i<choices.length;i++){
     var possibleChoice = getRandom(possibleChoices)
